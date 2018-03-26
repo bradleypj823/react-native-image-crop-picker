@@ -1,7 +1,15 @@
 # react-native-image-crop-picker
 iOS/Android image picker with support for camera, configurable compression, multiple images and cropping
 
-[![Backers on Open Collective](https://opencollective.com/react-native-image-crop-picker/backers/badge.svg)](#backers) [![Sponsors on Open Collective](https://opencollective.com/react-native-image-crop-picker/sponsors/badge.svg)](#sponsors)
+## Reason for this fork
+
+I created this fork to fix few issues I noticed in @ivpusic repo. My PR are still waiting to be merged and I really needed it for my project. I will try to keep this repo up-to-date til my PR are merged.
+
+## What more in this fork ?
+
+- **Android cloud storage** has been fixed: Before selecting an image in your drive storage will result in returning an empty path. Now, the file is dowloaded and saved in the cache folder. And you'll get all the informations as a local image.
+
+- **Files picker on iOS has been added**, it will give you access to your iCloud storage. Just need to call `openFile()` (only on iOS) with same parameters as `openPicker()`.
 
 ## Result
 
