@@ -582,8 +582,16 @@ RCT_EXPORT_METHOD(openCropper:(NSDictionary *)options
 
                                  NSString *filePath = @"";
                                  if([[self.options objectForKey:@"writeTempFile"] boolValue]) {
-
-                                     filePath = [self persistFile:imageResult.data];
+                                     
+                                     if ([dataUTI isEqualToString:@"public.heic"]) {
+                                         CIContext* context = [CIContext new];
+                                         NSDictionary* options = @{};
+                                         NSData *data = [context JPEGRepresentationOfImage:ciImage colorSpace:ciImage.colorSpace options:options];
+                                         filePath = [self persistFile:data];
+                                         imageResult.mime = @"image/jpeg";
+                                     } else {
+                                         filePath = [self persistFile:imageData];
+                                     }
 
                                      if (filePath == nil) {
                                          [indicatorView stopAnimating];
