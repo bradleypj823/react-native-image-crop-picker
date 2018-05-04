@@ -586,6 +586,7 @@ RCT_EXPORT_METHOD(openCropper:(NSDictionary *)options
                                      if ([dataUTI isEqualToString:@"public.heic"]) {
                                          CIContext* context = [CIContext new];
                                          NSDictionary* options = @{};
+                                         CIImage *ciImage = imgT.CIImage;
                                          NSData *data = [context JPEGRepresentationOfImage:ciImage colorSpace:ciImage.colorSpace options:options];
                                          filePath = [self persistFile:data];
                                          imageResult.mime = @"image/jpeg";
